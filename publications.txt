@@ -1,0 +1,72 @@
+---------------------
+International Journal
+---------------------
+Jain, A.K., Lad, B.K., Data Driven Models for Prognosis of High Speed Milling Cutters, "International Journal of Performability Engineering", 2015. (Accepted).
+
+Kumar, S., Lad, B.K., Integrated Production and Maintenance Planning for Parallel Machine System Considering Cost of Rejection, "Journal of the Operational Research Society", 2015. (Communicated).
+
+Kundu, P., Chopra, S. and Lad, B.K., Development of a Risk Based Maintenance Strategy to Optimize Forecast of a Gas Turbine Failures, "International Journal of Performability Engineering", Vol. 11, No. 5, 2015, pp.403-412. 
+
+Rawat, M. and Lad, B.K., An Integrated Approach for Fleet Level Maintenance Planning, "International Journal of Performability Engineering", Vol. 11, No. 3,  May 2015, pp. 229-242.
+
+Rawat, M. and Lad, B.K., Simultaneous Selection of Reliability Design and Level of Repair for Fleet Systems, "Expert Systems with Applications" 2015 (Communicated).
+
+Purohit, B. S. and Lad, B. K., Production and Maintenance Planning :An Integrated Approach Under Uncertainties, "The International Journal of Advanced Manufacturing Technology (IJAMT)", Springer, 2015. (Communicated).
+
+Lad, B.K. and M. S. Kulkarni, Reliability and Maintenance Based Design of Machine Tools, "International Journal of Performability Engineering", Vol. 9, No. 3, May 2013, pp. 321-332.
+
+Lad B.K. and Kulkarni M.S., Optimal maintenance policy decisions for machine tool considering users’ cost structure, to appear, “International J of Production Research (IJPR)”, Vol. 50, No. 20, 2012, 5859–5871.
+
+Lad B.K. and Kulkarni M.S., An Expert Based Methodology for Cost Oriented Analysis of Machine Tool Reliability. “International Journal of Performability Engineering”, Vol. 6, No. 2, March 2010, pp. 137-148.
+
+Lad B.K. and Kulkarni M.S., A parameter estimation method for machine tool reliability analysis using expert judgement, “Int. J. Data Analysis Techniques and Strategies”, Vol.2, No.2, 2010, pp. 155-169.
+
+Lad B.K. and Kulkarni M.S., A Mechanism for Linking User’s Operational Requirements with Reliability and Maintenance Schedule for Machine Tool, “International Journal of Reliability and Safety”, Vol. 4, No. 4, 2010, pp. 343-358.
+
+Lad B.K. and Kulkarni M.S., Integrated Reliability and Optimal Maintenance Schedule Design: A Life Cycle Cost Based Approach, “International Journal of Product Life Cycle Management”, Vol. 3, No. 1, 2008, pp.78-90. (3 Citations)
+
+
+
+-------------------
+Books/Book Chapters
+-------------------
+Lad B.K. and Kulkarni M.S., and Misra K.B., Optimal Reliability Design of a System. In: Misra K.B. (ed.) Handbook of Performability Engineering, 2008, Springer-Verlag. Pp.499-519.
+
+
+
+--------------------------------
+Papers in Conference Proceedings
+--------------------------------
+Jean-R Baptiste, Purohit, B. S. and Lad, B. K., "Integrated Operations Planning for a Multi Component Machine Subjected to Stochastic Environment", 5th International Conference on Simulation and Modeling Methodologies, Technologies and Applications (SIMULTECH) 2015, 21 -23 July at Colmar, Alsace ,France.
+
+Purohit, B. S. and Lad, B. K., "Joint Optimization of Quality & Maintenance Plan: Towards a Lean Enterprise", proceedings of 6th International Conference on Advancements in Polymeric Materials, 20-22 Feb., 2015.
+
+Jain, A. K., and Lad, B. K.,"Predicting Remaining Useful Life of High Speed Milling Cutters based on Artificial Neural Network", International Conference on Robotics, Automation, Control and Embedded System (RACE) 2015, 18–20 Feb. at Hindustan University, Chennai, India.
+
+Jain, A. K., Kundu, P., and Lad, B. K., “Remaining Useful Life Prediction of Aircraft Engine Based on Artificial Neural Network” 5th International and 26th All India Manufacturing Technology, Design and Research Conference (AIMTDR) 2014, 12-14 Dec. at IIT Guwahati, pp. 494 (1-5).
+
+Singh, H., Juikar, P., Tiwari, T. N., Lad, B. K., Palani, I. A., " Failure Diagnosis & Reliability Assessment of NiTi Shape Memory Alloy Spring For Micro-Actuators", International Conference on Robotics, Automation, Control and Embedded System (RACE) 2015, 18–20 Feb. at Hindustan University, Chennai, India.
+
+Kumar, S., Purohit, B. S. and Lad, B. K., “Integrated Approach for Job Scheduling and Multi-Component Maintenance Planning in a Production System” 5th International and 26th All India Manufacturing Technology, Design and Research Conference (AIMTDR) 2014, 12-14 Dec. at IIT Guwahati, pp. 482 (1-6).
+
+Rawat, M. and Lad B.K., "Fleet Level Maintenance Planning: An Integrated Approach", Proceeding of The Second International Conference on Intelligent Robotics, Automation and Manufacturing (IRAM) 2013, 16-18 Dec. at IIT Indore, pp. 561-567.
+
+Bhargava, A., Kumar, S., Rokade, T. and Lad, B. K., "Joint Optimisation of maintenance Schedules and Inventory levels in a Manufacturing System", Proceeding of The Second International Conference on Intelligent Robotics, Automation and Manufacturing (IRAM) 2013, 16-18 Dec. at IIT Indore, pp. 583-590.
+
+Rawat, M. and Lad B.K., "Condition Based Optimal Maintenance Strategy for Multi-component system", Proceeding of IEEE International Conference on Industrial Engineering and Engineering Management (IEEM) 2013, 10-13 Dec. at Bangkok, DOI: 978-1-4799-0986-5/13/©2013 IEEE.
+
+Chopra Seema, Lad B. K., and Bhate Deepali, "Diagnostics of Heavy Duty Gas Turbine Combustor Hardware Failure Using Operating Profile” 8TH-ASPACC (Asia-Pacific Conference on Combustion)-2010, 10-13 December 2010, Hyderabad, India.274-279.
+
+Lad B.K. and Kulkarni M.S., Machine Tool Reliability and Total Cost of Ownership: Challenges and Future Direction, Presented at 2009 International Applied Reliability Symposium, India, April 15 - 17, 2009, Pune, India.
+
+Lad B.K. and Kulkarni M.S., A Cost Based Failure Modes and Effects Analysis (FMEA) Model for Machine Tool Design. 2nd International & 23rd All India Manufacturing Technology, Design and Research Conference, Chennai, India, December 15-17, 2008, Vol. 1, pp. 295-300.
+
+NagdaTarun, Kumar Narendra, Lad B.K., Kulkarni M.S., A Web-based Reliability & Maintainability Data Collection and Management System for Machine Tools Industry. Abstract published in 12th International Conference of Society of Operations Management, 2008, IIT Kanpur, 19-21 Dec.
+
+Lad B.K. and Kulkarni M.S., Design for Life Cycle: Current Trend and Future Scope. National Conference on Business Optimization Research Wave, 2007, NITIE Mumbai. Feb 15-17.
+
+Lad B.K. and Kulkarni M.S., Capturing Product’s Life Cycle Attributes: A Conceptual Framework. Jain C.K. (ed.), Proceedings “International Conference on Recent Trends in Mechanical Engineering” (ICRTME-2007), Ujjain. India, Vol. 2, Oct. 4-6. pp. IP1-IP5.
+
+Pandey Divya, Shukla A.C., Lad B. K., “Customer Relationship Management (CRM): A case Study of ‘ABC’ Automobile Company”. 8th International Conference on Quality Innovation and Knowledge Management, Feb 12-14, 2007, New Delhi.
+
+Lad B.K., Pandey Divya, Shukla A.C., “A Comparative Study of Neural Network and Box-Jenkins ARIMA Modeling in Tourist Arrivals Forecasting”. 11th International Conference on Productivity and Quality Research, Dec. 12-15, 2005, IIT Delhi. 

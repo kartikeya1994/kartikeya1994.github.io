@@ -1713,6 +1713,11 @@
   text-align: justify;
 }
 
+.smallmargin{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 .pad{
   padding-left: 0%;
   padding-right: 0%;
@@ -1752,6 +1757,33 @@
   -webkit-border-radius: 80px;
   -moz-border-radius: 80px;
   background: url(/images/sandeepsir.jpg) no-repeat;
+  }
+
+  .amitjpg {
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  background: url(/images/amitsir.jpg) no-repeat;
+  }
+
+  .bhushanjpg {
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  background: url(/images/bhushansir.jpg) no-repeat;
+  }
+
+  .kundujpg {
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  background: url(/images/kundu.jpg) no-repeat;
   }
 
 
@@ -1848,6 +1880,8 @@
 
 		ol.default li {
 			padding-left: 0.25em;
+      padding-bottom: 0.25em;
+      padding-top: 0.25em;
 		}
 
 /* Form */
