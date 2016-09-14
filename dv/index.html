@@ -1,0 +1,393 @@
+<!DOCTYPE>
+
+<html>
+
+  <head>
+    <title>Visualize N-dimensional Data in 2D</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+    <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="http://cytoscape.github.io/cytoscape.js/api/cytoscape.js-latest/cytoscape.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.js"></script>
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.2.0/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+	<script src="https://cdn.rawgit.com/cytoscape/cytoscape.js-qtip/2.2.5/cytoscape-qtip.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- for testing with local version of cytoscape.js -->
+    <!-- <script src="../cytoscape.js/build/cytoscape.js"></script> -->
+
+    <style>
+      body {
+        font-family: Roboto;
+        font-size: 14px;
+        background-color: #34495e;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+      }
+
+      #cy {
+        width: 100%;
+        height: 75%;
+        background-color: #2c3e50;
+        left: 0;
+        top: 0;
+        z-index: 999;
+      }
+
+      h1 {
+        opacity: 1;
+        color: #ecf0f1;
+        font-size: 2em;
+        text-align: center;
+        font-family: Roboto;
+      }
+      h3 {
+        opacity: 1;
+        color: #ecf0f1;
+        font-size: 1em;
+        text-align: center;
+        font-family: Roboto;
+      }
+
+      textarea{
+    	width: 80%;
+    	height: 50%;
+	 }
+    </style>
+
+    <script>
+    var idCount = 1;
+    var xspace = screen.width/1.35/20;
+    var yspace = screen.width/1.7/20;
+    var numRows = 10;
+    var numCols = 20;
+    var numIter = 1;
+    var dim = -1;
+    var n = -1;
+    var data = [];
+    var vectors;
+
+    $(function(){
+    	
+
+        var cy = window.cy = cytoscape({
+          container: document.getElementById('cy'),
+
+          boxSelectionEnabled: false,
+          autounselectify: true,
+          
+          layout: {
+            name: 'grid'
+          },
+
+          style: [
+            {
+              selector: 'node',
+              style: {
+              	'height': screen.width/2/20/2,
+                'width': screen.width/2/20,
+                //'background-color': '#2ecc71',
+                'label': 'data(points)', 
+                'text-wrap': 'wrap', 
+                'text-max-width':40,
+                'shape' : 'roundrectangle', 
+                'selectable' : false,
+                'color' : '#ecf0f1',
+                'font-size' : 5
+              } 
+            },
+
+            {
+              selector: 'edge',
+              style: {
+                'curve-style': 'haystack',
+                'haystack-radius': 0,
+                'width': 5,
+                'opacity': 0.5,
+                'line-color': '#a2efa2'
+              }
+            }
+          ],
+        });
+
+			for(var i=1; i<=numRows; i++)
+           	{
+           		for(var j=1; j<=numCols; j++)
+           		{
+           			var eleID = (i-1)*numCols+j;
+		           	cy.add({
+		           		"data":{"id": eleID.toString(), "points":""},
+			           	"position":{"x":xspace*j,"y":yspace*i},
+			           	"group":"nodes",
+			           	"removed":false,
+			           	"selected":false,
+			           	"selectable":false,
+			           	"locked":false,
+			           	"grabbable":false,
+			           	"classes":""
+		           	});
+	           }
+	        }
+
+
+		cy.on('mouseover', 'node', function(event) {
+		    var node = event.cyTarget;
+		    node.qtip({
+		         content: {
+		         	'title':'Clustered Points',
+		         	'text': node.data('points')
+		         },
+		         show: {
+		            event: event.type,
+		            ready: true, 
+		            solo: true
+		         },
+		         hide: {
+		            event: 'mouseout'
+         		},
+         		class : 'qtip-rounded',
+         		style : {
+         			classes : "qtip-light qtip-rounded qtip-shadow"
+         		}
+    		}, event);
+		});
+    });
+
+    function getRow(id)
+    {
+    	return Math.floor(id/numCols);
+    }
+
+    function getCol(id)
+    {
+    	return id - numCols*getRow(id) - 1;
+    }
+
+    function getID(row, col)
+    {
+    	return row*numRows + col + 1;
+    }
+
+	function init()
+	{
+		for(var id=1; id<=numCols*numRows;id++)
+		{
+			var node = cy.getElementById(id.toString())
+			var r = Math.random()*255;
+			var g = Math.random()*255;
+			var b = Math.random()*255;
+			node.style('background-color', 'rgb('+r.toString()+','+g.toString()+', '+b.toString()+')');
+		}
+	}
+
+	function parseData()
+	{
+		var lines = document.getElementById("inputdata").value.trim().split('\n'); 
+		n = 0;
+		dim = -1;
+		for(var i=0; i<lines.length; i++)
+		{
+			if(lines[i].trim() != '')
+			{
+				n++;
+				lines[i] = lines[i].trim().split(' ');
+				if(document.getElementById('labelExists').checked == false)
+				{
+					//add label if no label column in data
+					lines[i].unshift('P'+JSON.stringify(i+1));
+				}
+				data.push(lines[i]);
+				if(dim==-1)
+				{
+					dim = lines[i].length-1;
+					if(dim<3)
+						alert('Error: Dimension is less than 3.')
+				}
+				else if(dim!=lines[i].length-1)
+				{
+					alert((i+1).toString()+' data line does not match dimension');
+					break;
+				}
+			}
+		}
+		console.log("Dim: "+dim);
+		console.log("N: "+n);
+
+		vectors = Array(numRows);;
+		for(var i=0; i<numRows; i++)
+		{
+			vectors[i] = Array(numCols);
+			for(var j=0; j<numCols; j++)
+			{
+				vectors[i][j] = Array(dim);
+				for(var k=0; k<dim; k++)
+				{
+					vectors[i][j][k] = Math.random();
+				}
+			}
+		}
+
+		console.log("Random num: " + vectors[1][2][1]);
+		console.log("Label 2: "+ data[1][0]);
+		
+		/*for(var g=0;g<n;g++)
+		{
+			for(var h=0;h<dim+1;h++)
+				console.log(data[g][h]+' ');
+			console.log('\n')
+		}*/
+	}
+
+	function bestMatchingVector(dataPoint)
+	{
+		// return  the vector with least Euclidean distance with data point
+		var minDist = 100000;
+		var id = -1;
+		for(var row=0; row<numRows; row++)
+		{
+			for(var col=0; col<numCols; col++)
+			{
+				var dist = 0;
+				for(var d=0; d<dim; d++)
+					dist += (vectors[row][col][d]-dataPoint[d+1])*(vectors[row][col][d]-dataPoint[d+1]);
+				dist = Math.sqrt(dist);
+				if(dist < minDist)
+				{
+					minDist = dist;
+					id = getID(row, col);
+				}
+			}
+		}
+		return id;
+	}
+
+	function learningRate(iterNum)
+	{
+		return 0.8;
+	}
+
+	function proximityFactor(distance)
+	{
+		return 0.5
+	}
+
+	function radius(iterNum)
+	{
+		return 4;
+	}
+
+	function dist(r1, c1, r2, c2)
+	{
+		// the distance between two nodes can be found using the pythagoras theorem
+		return Math.sqrt((r2-r1)*(r2-r1) + (c2-c1)*(c2-c1));
+	}
+
+	function adjustWeights(bmvID, dataPoint, iterNum)
+	{
+		var r=getRow(bmvID);
+		var c=getCol(bmvID);
+		
+		for(var row=0; row<numRows; row++)
+		{
+			for(var col=0; col<numCols; col++)
+			{
+				var distance = dist(row, col, r, c);
+				if(distance <= radius(iterNum))
+				{
+					//node is in proximity, update its weights
+					for(var d=0; d<dim; d++)
+					{
+						//update each dimension of the vector
+						console.log(r,c,d);
+						console.log('vector: '+vectors[r][c][d].toString());
+						console.log('dataPoint: ' + dataPoint[d].toString());
+						vectors[r][c][d] += proximityFactor(distance)*learningRate(iterNum)*(vectors[r][c][d] - dataPoint[d]);
+					}
+				}
+			}
+		}
+	}
+
+	function selfOrganizingMap()
+	{
+		//train the map with input data
+		for(var iter=0; iter<numIter; iter++)
+		{
+			console.log('Iteration no. '+iter.toString());
+			for(var ni=0; ni<n; ni++)
+			{
+				var bmvID  = bestMatchingVector(data[ni]); 
+				console.log('BMV: '+ bmvID.toString());
+				adjustWeights(bmvID, data[ni], iter);
+			}
+		}
+
+		//group input data on trained map
+		var group = Array(n);
+		for(var ni=0; ni<n; ni++)
+			group[ni] = bestMatchingVector();
+
+		return group;
+	}
+
+	function plotOnMap(group)
+	{
+		for(var ni=0; ni<n; ni++)
+		{
+			var node = cy.getElementById(group[ni].toString());
+			var points = node.data('points');
+			if(points == '')
+			{
+				points += data[ni][0];
+			}
+			else
+			{
+				points += ', '+data[ni][0];
+			}
+		}
+	}
+
+	function go()
+	{
+		init();
+
+	}
+
+	function visualize()
+	{
+		parseData();
+
+		var group = selfOrganizingMap();
+
+		plotOnMap(group);
+	}
+    </script>
+  </head>
+
+  <body onload="go()">
+    <h1>Visualize N-dimensional data in 2D</h1>
+    <h3>Scroll to zoom, drag mouse to pan. </h3>
+    <div id="cy"></div>
+    <div style="text-align: center">
+    <h3>Enter multi-dimensional data below</h3>
+	<textarea id="inputdata">P1 100 500 1000
+P2 0 12 4</textarea>
+	<br>
+	<input type="checkbox" id="labelExists" checked><label for="labelExists" style="color: #ffffff">First column is label</label>
+	<br>
+	<button class="btn btn-default" onclick="visualize()">Go!</button>
+	</div>
+  </body>
+
+</html>
